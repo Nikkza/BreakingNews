@@ -15,8 +15,10 @@ namespace BreakingNews
         {
             using (var client = new WebClient())
             {
-                HtmlCode = client.DownloadString(url);
+                HtmlCode = client.DownloadString(url).ToLower();
             }
         }
+
+
     }
 }
