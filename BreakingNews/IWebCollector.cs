@@ -10,6 +10,5 @@ namespace BreakingNews
     {
         string HtmlCode { get; set; }
         void GetHtmlFromUrl(string url);
-       
     }
 }

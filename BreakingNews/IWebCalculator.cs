@@ -10,6 +10,5 @@ namespace BreakingNews
     {
        int CalculateNumberOfHits(IWebCollector webColl, string keyword);
     }
-
 }
 
