@@ -14,7 +14,7 @@ namespace NunitTests
         #region Here i started the test WebColectorTest 
 
         [Test]
-        public void TestCode()
+        public void TestCodeWebCollector()
         {
             Assert.Catch<ArgumentNullException>(StringIsNullOrEmpty);
             Assert.Catch<ArgumentException>(UrlNotContainsHttp);
@@ -47,12 +47,24 @@ namespace NunitTests
         }
 
 
-
-
-
         #endregion
 
         #region Here i started the test WebCalculatorTest
+        [Test]
+        public void TestWebCalculator()
+        {
+            Assert.Catch<ArgumentNullException>(EmptyString);
+        }
+
+       
+        public void EmptyString()
+        {
+            WebCalculator wc = new WebCalculator();
+            WebCollector wb = new WebCollector();
+            string empty = null;
+            wc.CalculateNumberOfHits(wb, empty);
+        }
+
 
 
 
