@@ -10,7 +10,6 @@ namespace BreakingNews
         private string _aftonbladet = "https://www.aftonbladet.se";
         private string _expressen = "https://www.expressen.se/";
         private string _dn = "https://www.dn.se/";
-        private const string _ekonomi = "ekonomi";
         private string _changeurl;
 
         public Form1()
@@ -19,40 +18,32 @@ namespace BreakingNews
             _myWebCalculator = new WebCalculator();
             _myWebCollector = new WebCollector();
         }
-        private async Task Loading()
-        {
-            labelCount.Text = "Loading...";
-            await Task.Delay(1500);
-        }
 
         private void LogicRadioButton()
         {
             if (radioButtonAftonbladet.Checked)
-            {
                 _changeurl = _aftonbladet;
-            }
+
             else if (radioButtonExpressen.Checked)
-            {
                 _changeurl = _expressen;
-            }
+
             else if (radioButtonDN.Checked)
-            {
                 _changeurl = _dn;
-            }
         }
 
-        public async void RadioButtonNews()
+        private async void RadioButtonNews()
         {
             if (groupBoxKeyWords.SelectedRadioButton().Checked)
             {
-                await Loading();
+                textBoxCount.Text = "Loading...";
+                await Task.Delay(1500);
                 await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, groupBoxKeyWords.SelectedRadioButton().Text.ToLower()).ToString();
+                textBoxCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, groupBoxKeyWords.SelectedRadioButton().Text.ToLower()).ToString();
             }
         }
 
         private void buttonGetStat_Click(object sender, System.EventArgs e)
-        {            
+        {
             LogicRadioButton();
             RadioButtonNews();
         }

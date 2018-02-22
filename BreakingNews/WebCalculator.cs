@@ -5,7 +5,6 @@ namespace BreakingNews
 {
     public class WebCalculator : IWebCalculator
     {
-
         public int CalculateNumberOfHits(IWebCollector webColl, string keyword)
         {
             if (webColl == null || webColl.HtmlCode == null || keyword == null)
@@ -17,8 +16,8 @@ namespace BreakingNews
             {
                 throw new ArgumentException("cant be null HTML");
             }
+
             return Regex.Matches(webColl.HtmlCode.ToLower(), keyword).Count;
         }
-
     }
 }

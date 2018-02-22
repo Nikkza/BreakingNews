@@ -17,7 +17,6 @@ namespace BreakingNews
                 throw new ArgumentNullException("is null or empty");
             }
 
-
             if (!url.Contains("https://") || url.Contains("http://"))
             {
                 throw new ArgumentException("Missing http or https");
