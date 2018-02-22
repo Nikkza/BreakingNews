@@ -10,10 +10,5 @@ namespace BreakingNews
             return b.Controls.OfType<RadioButton>().Where(rb => rb.Checked).SingleOrDefault();
         }
 
-        public static RadioButton SelectedRadioButtonTwo(this GroupBox c)
-        {
-            return c.Controls.OfType<RadioButton>().Where(r => r.Checked).SingleOrDefault();
-        }
-
     }
 }

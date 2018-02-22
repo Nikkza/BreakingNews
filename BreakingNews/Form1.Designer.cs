@@ -39,6 +39,11 @@
             this.radioButtonKorea = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +53,7 @@
             this.radioButtonAftonbladet.AutoSize = true;
             this.radioButtonAftonbladet.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.radioButtonAftonbladet.FlatAppearance.BorderSize = 0;
+            this.radioButtonAftonbladet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.radioButtonAftonbladet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButtonAftonbladet.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonAftonbladet.Location = new System.Drawing.Point(28, 25);
@@ -91,23 +97,27 @@
             // labelCount
             // 
             this.labelCount.AutoSize = true;
-            this.labelCount.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCount.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelCount.Location = new System.Drawing.Point(211, 341);
+            this.labelCount.Location = new System.Drawing.Point(203, 344);
             this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(91, 32);
+            this.labelCount.Size = new System.Drawing.Size(0, 46);
             this.labelCount.TabIndex = 7;
-            this.labelCount.Text = "Count";
             // 
             // buttonGetStat
             // 
-            this.buttonGetStat.Location = new System.Drawing.Point(61, 262);
+            this.buttonGetStat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonGetStat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonGetStat.FlatAppearance.BorderSize = 0;
+            this.buttonGetStat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGetStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGetStat.Location = new System.Drawing.Point(12, 265);
             this.buttonGetStat.Name = "buttonGetStat";
-            this.buttonGetStat.Size = new System.Drawing.Size(401, 55);
+            this.buttonGetStat.Size = new System.Drawing.Size(517, 55);
             this.buttonGetStat.TabIndex = 8;
             this.buttonGetStat.Text = "Get Statistcs";
-            this.buttonGetStat.UseVisualStyleBackColor = true;
+            this.buttonGetStat.UseVisualStyleBackColor = false;
             this.buttonGetStat.Click += new System.EventHandler(this.buttonGetStat_Click);
             // 
             // radioButtonPolis
@@ -163,6 +173,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.radioButtonBostad);
             this.groupBox1.Controls.Add(this.radioButtonPolis);
             this.groupBox1.Controls.Add(this.radioButtonEkonomi);
@@ -186,11 +197,64 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(12, 212);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(521, 19);
+            this.textBox1.TabIndex = 15;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Location = new System.Drawing.Point(12, 13);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(521, 19);
+            this.textBox2.TabIndex = 16;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(187, 28);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(115, 182);
+            this.textBox3.TabIndex = 17;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(518, 28);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(77, 182);
+            this.textBox4.TabIndex = 18;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(0, 16);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(43, 182);
+            this.textBox5.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 406);
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ClientSize = new System.Drawing.Size(541, 414);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonGetStat);
@@ -218,6 +282,11 @@
         private System.Windows.Forms.RadioButton radioButtonKorea;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

@@ -1,85 +1,59 @@
 ﻿using BreakingNews;
-using Castle.Components.DictionaryAdapter.Xml;
 using NUnit.Framework;
+using System;
 
 namespace NunitTests
 {
-    [NUnit.Framework.TestFixture]
+    [TestFixture]
     public class TestClass
     {
         /// <summary>
         /// TestClass
         /// </summary>
 
-        #region Here i started the test WebCalculatorTest 
+        #region Here i started the test WebColectorTest 
 
         [Test]
-        public void TestedEmptydUrl()
+        public void TestCode()
+        {
+            Assert.Catch<ArgumentNullException>(StringIsNullOrEmpty);
+            Assert.Catch<ArgumentException>(UrlNotContainsHttp);
+        }
+
+
+        [Test]
+        public void ValidUrl()
         {
             WebCollector wc = new WebCollector();
-            string s = "https://www.aftonbladet.se/";
-            wc.GetHtmlFromUrl(s);
-            if (s == string.Empty)
-            {
-                Assert.Fail();
-            }
+            string url = "https://www.aftonbladet.se/";
+            wc.GetHtmlFromUrl(url);
+            Assert.IsTrue(url.Contains("https://"));
         }
 
-        [Test]
-        public void TestHttpUrl()
+        public void StringIsNullOrEmpty()
         {
-            IWebCollector wc = new WebCollector();
-            string s = "https://www.aftonbladet.se/";
-            wc.GetHtmlFromUrl(s);
-            if (!s.StartsWith("https://"))
-            {
-                Assert.Fail();
-            }
-
+            WebCollector wc = new WebCollector();
+            string nullobject = null;
+            wc.GetHtmlFromUrl(nullobject);
+            string empty = String.Empty;
+            wc.GetHtmlFromUrl(empty);
         }
 
-        [Test]
-        public void TestUnvalidUrl()
+        public void UrlNotContainsHttp()
         {
-            IWebCollector wc = new WebCollector();
-            string s = "https://www.aftonbladet.se/";
-            wc.GetHtmlFromUrl(s);
-            if (s.StartsWith("http://.."))
-            {
-                Assert.Fail();
-            }
+            WebCollector wc = new WebCollector();
+            string url = "www.aftonladet.se";
+            wc.GetHtmlFromUrl(url);
         }
-      
-        [Test]
-        public void TestNullObjekt()
-        {
-            IWebCollector wc = new WebCollector();
-            string s = "https://www.aftonbladet.se/";
-            wc.GetHtmlFromUrl(s);
-            if (s == null)
-            {
-                Assert.Fail();
-            }
 
-        }
+
+
+
+
         #endregion
 
         #region Here i started the test WebCalculatorTest
 
-        [Test]
-        public void TestNullObjectICalculator()
-        {
-            IWebCalculator wc = new WebCalculator();
-            IWebCollector wb = new WebCollector();
-            string s = "korea";
-            wb.GetHtmlFromUrl("https://www.aftonbladet.se/");
-            wc.CalculateNumberOfHits(wb, s);
-
-            if (wb == null && s == null)
-            {
-                Assert.Fail();
-            }
-        }
 
 
         #endregion

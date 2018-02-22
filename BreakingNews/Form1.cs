@@ -47,29 +47,28 @@ namespace BreakingNews
 
             switch (this.groupBox1.SelectedRadioButton().Text)
             {
-
                 case "ekonomi":
                     await Loading();
                     await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text).ToString();
+                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
                     return;
 
                 case "polis":
                     await Loading();
                     await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text).ToString();
+                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
                     return;
 
                 case "bostad":
                     await Loading();
                     await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text).ToString();
+                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
                     return;
 
                 case "korea":
                     await Loading();
                     await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text).ToString();
+                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
                     return;
             }
         }

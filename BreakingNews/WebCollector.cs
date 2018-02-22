@@ -1,5 +1,5 @@
-﻿using System.Net;
-using System.Threading.Tasks;
+﻿using System;
+using System.Net;
 
 namespace BreakingNews
 {
@@ -9,10 +9,27 @@ namespace BreakingNews
 
         public void GetHtmlFromUrl(string url)
         {
-            using (var client = new WebClient())
+            // if string is null or empty
+            // throw an exception!!
+
+            if (string.IsNullOrEmpty(url) || url == null)
             {
-                HtmlCode = client.DownloadString(url).ToLower();
+                throw new ArgumentNullException("is null or empty");
             }
+
+            if (!url.Contains("https://") || url.Contains("http://"))
+            {
+                throw new ArgumentException("Missing http or https");
+            }
+
+            if (Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            {
+                using (var client = new WebClient())
+                {
+                    HtmlCode = client.DownloadString(url).ToLower();
+                }
+            }
+
 
         }
 
