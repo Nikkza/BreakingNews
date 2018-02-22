@@ -37,14 +37,14 @@
             this.radioButtonEkonomi = new System.Windows.Forms.RadioButton();
             this.radioButtonBostad = new System.Windows.Forms.RadioButton();
             this.radioButtonKorea = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxKeyWords = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxKeyWords.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,19 +171,29 @@
             this.radioButtonKorea.Text = "korea";
             this.radioButtonKorea.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // groupBoxKeyWords
             // 
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.radioButtonBostad);
-            this.groupBox1.Controls.Add(this.radioButtonPolis);
-            this.groupBox1.Controls.Add(this.radioButtonEkonomi);
-            this.groupBox1.Controls.Add(this.radioButtonKorea);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 211);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
+            this.groupBoxKeyWords.Controls.Add(this.textBox5);
+            this.groupBoxKeyWords.Controls.Add(this.radioButtonBostad);
+            this.groupBoxKeyWords.Controls.Add(this.radioButtonPolis);
+            this.groupBoxKeyWords.Controls.Add(this.radioButtonEkonomi);
+            this.groupBoxKeyWords.Controls.Add(this.radioButtonKorea);
+            this.groupBoxKeyWords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBoxKeyWords.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxKeyWords.Name = "groupBoxKeyWords";
+            this.groupBoxKeyWords.Size = new System.Drawing.Size(200, 211);
+            this.groupBoxKeyWords.TabIndex = 13;
+            this.groupBoxKeyWords.TabStop = false;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(0, 16);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(43, 182);
+            this.textBox5.TabIndex = 19;
             // 
             // groupBox2
             // 
@@ -235,16 +245,6 @@
             this.textBox4.Size = new System.Drawing.Size(77, 182);
             this.textBox4.TabIndex = 18;
             // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(0, 16);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(43, 182);
-            this.textBox5.TabIndex = 19;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -256,13 +256,13 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxKeyWords);
             this.Controls.Add(this.buttonGetStat);
             this.Controls.Add(this.labelCount);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxKeyWords.ResumeLayout(false);
+            this.groupBoxKeyWords.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -280,7 +280,7 @@
         private System.Windows.Forms.RadioButton radioButtonEkonomi;
         private System.Windows.Forms.RadioButton radioButtonBostad;
         private System.Windows.Forms.RadioButton radioButtonKorea;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxKeyWords;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

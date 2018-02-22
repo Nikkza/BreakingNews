@@ -41,36 +41,20 @@ namespace BreakingNews
             }
         }
 
-        private async void buttonGetStat_Click(object sender, System.EventArgs e)
+        public async void RadioButtonNews()
         {
-            LogicRadioButton();
-
-            switch (this.groupBox1.SelectedRadioButton().Text)
+            if (groupBoxKeyWords.SelectedRadioButton().Checked)
             {
-                case "ekonomi":
-                    await Loading();
-                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
-                    return;
-
-                case "polis":
-                    await Loading();
-                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
-                    return;
-
-                case "bostad":
-                    await Loading();
-                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
-                    return;
-
-                case "korea":
-                    await Loading();
-                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                    labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, this.groupBox1.SelectedRadioButton().Text.ToLower()).ToString();
-                    return;
+                await Loading();
+                await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
+                labelCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, groupBoxKeyWords.SelectedRadioButton().Text.ToLower()).ToString();
             }
+        }
+
+        private void buttonGetStat_Click(object sender, System.EventArgs e)
+        {            
+            LogicRadioButton();
+            RadioButtonNews();
         }
     }
 }

@@ -20,7 +20,6 @@ namespace NunitTests
             Assert.Catch<ArgumentException>(UrlNotContainsHttp);
         }
 
-
         [Test]
         public void ValidUrl()
         {
@@ -53,20 +52,36 @@ namespace NunitTests
         [Test]
         public void TestWebCalculator()
         {
-            Assert.Catch<ArgumentNullException>(EmptyString);
+            Assert.Catch<ArgumentNullException>(TestNullOrEmptyWebCalculator);
+            Assert.Catch<ArgumentException>(TestHtmlStringEmptyWebCalculator);
         }
 
-       
-        public void EmptyString()
+        public void TestNullOrEmptyWebCalculator()
         {
             WebCalculator wc = new WebCalculator();
             WebCollector wb = new WebCollector();
-            string empty = null;
-            wc.CalculateNumberOfHits(wb, empty);
+            string s = "hej";
+            wb = null;
+            wc.CalculateNumberOfHits(wb, s);
         }
 
+        public void TestHtmlNullWebCalculator()
+        {
+            IWebCalculator wc = new WebCalculator();
+            IWebCollector wb = new WebCollector();
+            wb.HtmlCode = null;
+            string s = "testing";
+            wc.CalculateNumberOfHits(wb, s);
+        }
 
-
+        public void TestHtmlStringEmptyWebCalculator()
+        {
+            IWebCalculator wc = new WebCalculator();
+            IWebCollector wb = new WebCollector();
+            wb.HtmlCode = String.Empty;
+            string s = "testing";
+            wc.CalculateNumberOfHits(wb, s);
+        }
 
         #endregion
 
