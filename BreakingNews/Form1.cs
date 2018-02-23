@@ -31,21 +31,27 @@ namespace BreakingNews
                 _changeurl = _dn;
         }
 
-        private async void RadioButtonNews()
+        private async void RadioButtonNews(RadioButton s)
         {
-            if (groupBoxKeyWords.SelectedRadioButton().Checked)
+            if (s.Checked)
             {
-                textBoxCount.Text = "Loading...";
-                await Task.Delay(1500);
-                await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
-                textBoxCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, groupBoxKeyWords.SelectedRadioButton().Text.ToLower()).ToString();
+                try
+                {
+                    textBoxCount.Text = "Loading...";
+                    await Task.Delay(1500);
+                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
+                }
+                finally
+                {
+                    textBoxCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, s.Text.ToLower()).ToString();
+                }
             }
         }
 
         private void buttonGetStat_Click(object sender, System.EventArgs e)
         {
             LogicRadioButton();
-            RadioButtonNews();
+            RadioButtonNews(groupBoxKeyWords.SelectedRadioButton());
         }
     }
 }
