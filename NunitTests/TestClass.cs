@@ -52,35 +52,57 @@ namespace NunitTests
         [Test]
         public void TestWebCalculator()
         {
-            Assert.Catch<ArgumentNullException>(TestNullOrEmptyWebCalculator);
-            Assert.Catch<ArgumentException>(TestHtmlStringEmptyWebCalculator);
+            //Assert.Catch<ArgumentNullException>(TestNullOrEmptyWebCalculator);
+            // Assert.Catch<ArgumentException>(TestHtmlStringEmptyWebCalculator);
         }
-
-        public void TestNullOrEmptyWebCalculator()
+        [Test]
+        public void TestNullWebCollCalculator()
         {
             WebCalculator wc = new WebCalculator();
             WebCollector wb = new WebCollector();
             string s = "hej";
-            wb = null;
-            wc.CalculateNumberOfHits(wb, s);
+            var results = wc.CalculateNumberOfHits(wb, s);
+            Assert.AreEqual(-1, results);
         }
-
+        [Test]
         public void TestHtmlNullWebCalculator()
         {
             IWebCalculator wc = new WebCalculator();
             IWebCollector wb = new WebCollector();
             wb.HtmlCode = null;
             string s = "testing";
-            wc.CalculateNumberOfHits(wb, s);
+            var results = wc.CalculateNumberOfHits(wb, s);
+            Assert.AreEqual(-1, results);
         }
-
+        [Test]
         public void TestHtmlStringEmptyWebCalculator()
         {
             IWebCalculator wc = new WebCalculator();
             IWebCollector wb = new WebCollector();
             wb.HtmlCode = String.Empty;
             string s = "testing";
-            wc.CalculateNumberOfHits(wb, s);
+            var results = wc.CalculateNumberOfHits(wb, s);
+            Assert.AreEqual(-1, results);
+        }
+        [Test]
+        public void TestKeyWordStringEmptyWebCalculator()
+        {
+            IWebCalculator wc = new WebCalculator();
+            IWebCollector wb = new WebCollector();
+            wb.HtmlCode = "Sträng";
+            string s = String.Empty;
+            var results = wc.CalculateNumberOfHits(wb, s);
+            Assert.AreEqual(-1, results);
+        }
+        [Test]
+        public void TestKeyWordNullWebCalculator()
+        {
+            IWebCalculator wc = new WebCalculator();
+            IWebCollector wb = new WebCollector();
+            wb.HtmlCode = "Sträng";
+            string s = null;
+            var results = wc.CalculateNumberOfHits(wb, s);
+            Assert.AreEqual(-1, results);
         }
 
         #endregion
