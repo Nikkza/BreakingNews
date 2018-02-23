@@ -7,14 +7,9 @@ namespace BreakingNews
     {
         public int CalculateNumberOfHits(IWebCollector webColl, string keyword)
         {
-            if (webColl == null || webColl.HtmlCode == null || keyword == null)
-            {
-                throw new ArgumentNullException("Cant be null");
-            }
-
-            if (string.IsNullOrEmpty(webColl.HtmlCode))
-            {
-                throw new ArgumentException("cant be null HTML");
+            if (string.IsNullOrEmpty(webColl.HtmlCode) || webColl == null ||string.IsNullOrEmpty(keyword))
+            {              
+                return -1;
             }
 
             return Regex.Matches(webColl.HtmlCode.ToLower(), keyword).Count;
