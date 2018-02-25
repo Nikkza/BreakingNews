@@ -9,27 +9,23 @@ namespace BreakingNews
 
         public void GetHtmlFromUrl(string url)
         {
-
             if (string.IsNullOrEmpty(url) || url == null)
             {
-                throw new ArgumentNullException("is null or empty");
+                throw new ArgumentNullException("Cant be null or empty values");
             }
 
-            if (!url.Contains("https://") || url.Contains("http://"))
+            if (!url.StartsWith("https"))
             {
-                throw new ArgumentException("Missing http or https");
+                throw new ArgumentException("missing https");
             }
 
-            if (Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            if (url.StartsWith("https"))
             {
                 using (var client = new WebClient())
                 {
                     HtmlCode = client.DownloadString(url).ToLower();
                 }
             }
-
-
         }
-
     }
 }
