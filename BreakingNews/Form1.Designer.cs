@@ -38,12 +38,13 @@
             this.radioButtonKorea = new System.Windows.Forms.RadioButton();
             this.groupBoxKeyWords = new System.Windows.Forms.GroupBox();
             this.groupBoxNewsPapers = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBoxCount = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.groupBoxKeyWords.SuspendLayout();
             this.groupBoxNewsPapers.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             // radioButtonAftonbladet
             // 
             this.radioButtonAftonbladet.AutoSize = true;
+            this.radioButtonAftonbladet.Checked = true;
             this.radioButtonAftonbladet.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.radioButtonAftonbladet.FlatAppearance.BorderSize = 0;
             this.radioButtonAftonbladet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -75,7 +77,6 @@
             this.radioButtonDN.Name = "radioButtonDN";
             this.radioButtonDN.Size = new System.Drawing.Size(229, 38);
             this.radioButtonDN.TabIndex = 5;
-            this.radioButtonDN.TabStop = true;
             this.radioButtonDN.Text = "dagensNyheter";
             this.radioButtonDN.UseVisualStyleBackColor = true;
             // 
@@ -101,7 +102,7 @@
             this.buttonGetStat.FlatAppearance.BorderSize = 0;
             this.buttonGetStat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGetStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGetStat.Location = new System.Drawing.Point(-9, 249);
+            this.buttonGetStat.Location = new System.Drawing.Point(0, 249);
             this.buttonGetStat.Name = "buttonGetStat";
             this.buttonGetStat.Size = new System.Drawing.Size(538, 55);
             this.buttonGetStat.TabIndex = 8;
@@ -150,6 +151,7 @@
             // radioButtonKorea
             // 
             this.radioButtonKorea.AutoSize = true;
+            this.radioButtonKorea.Checked = true;
             this.radioButtonKorea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButtonKorea.Font = new System.Drawing.Font("Bahnschrift", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonKorea.Location = new System.Drawing.Point(49, 25);
@@ -162,13 +164,13 @@
             // 
             // groupBoxKeyWords
             // 
-            this.groupBoxKeyWords.Controls.Add(this.textBox5);
+            this.groupBoxKeyWords.Controls.Add(this.panel2);
             this.groupBoxKeyWords.Controls.Add(this.radioButtonBostad);
             this.groupBoxKeyWords.Controls.Add(this.radioButtonPolis);
             this.groupBoxKeyWords.Controls.Add(this.radioButtonEkonomi);
             this.groupBoxKeyWords.Controls.Add(this.radioButtonKorea);
             this.groupBoxKeyWords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxKeyWords.Location = new System.Drawing.Point(2, 12);
+            this.groupBoxKeyWords.Location = new System.Drawing.Point(11, 12);
             this.groupBoxKeyWords.Name = "groupBoxKeyWords";
             this.groupBoxKeyWords.Size = new System.Drawing.Size(200, 211);
             this.groupBoxKeyWords.TabIndex = 13;
@@ -176,90 +178,89 @@
             // 
             // groupBoxNewsPapers
             // 
+            this.groupBoxNewsPapers.Controls.Add(this.panel3);
             this.groupBoxNewsPapers.Controls.Add(this.radioButtonExpressen);
             this.groupBoxNewsPapers.Controls.Add(this.radioButtonDN);
             this.groupBoxNewsPapers.Controls.Add(this.radioButtonAftonbladet);
             this.groupBoxNewsPapers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBoxNewsPapers.Location = new System.Drawing.Point(251, 13);
+            this.groupBoxNewsPapers.Location = new System.Drawing.Point(243, 13);
             this.groupBoxNewsPapers.Name = "groupBoxNewsPapers";
-            this.groupBoxNewsPapers.Size = new System.Drawing.Size(248, 210);
+            this.groupBoxNewsPapers.Size = new System.Drawing.Size(265, 210);
             this.groupBoxNewsPapers.TabIndex = 14;
             this.groupBoxNewsPapers.TabStop = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(494, 28);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(35, 182);
-            this.textBox4.TabIndex = 18;
             // 
             // textBoxCount
             // 
             this.textBoxCount.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBoxCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCount.Location = new System.Drawing.Point(-9, 328);
+            this.textBoxCount.Location = new System.Drawing.Point(0, 328);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(542, 46);
             this.textBoxCount.TabIndex = 19;
             this.textBoxCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // panel1
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(-9, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(542, 19);
-            this.textBox2.TabIndex = 16;
+            this.panel1.Location = new System.Drawing.Point(0, 217);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(508, 26);
+            this.panel1.TabIndex = 20;
             // 
-            // textBox1
+            // panel2
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(-9, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(542, 19);
-            this.textBox1.TabIndex = 15;
+            this.panel2.Location = new System.Drawing.Point(194, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(16, 207);
+            this.panel2.TabIndex = 21;
             // 
-            // textBox3
+            // panel3
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(187, 30);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(81, 182);
-            this.textBox3.TabIndex = 17;
+            this.panel3.Location = new System.Drawing.Point(255, 11);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(28, 207);
+            this.panel3.TabIndex = 22;
             // 
-            // textBox5
+            // panel4
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(0, 16);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(43, 182);
-            this.textBox5.TabIndex = 19;
+            this.panel4.Location = new System.Drawing.Point(11, 17);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(508, 26);
+            this.panel4.TabIndex = 21;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(227, 31);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(28, 207);
+            this.panel5.TabIndex = 22;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(3, 24);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(31, 203);
+            this.panel6.TabIndex = 23;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(529, 421);
-            this.Controls.Add(this.textBox4);
+            this.ClientSize = new System.Drawing.Size(533, 421);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBoxNewsPapers);
             this.Controls.Add(this.textBoxCount);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBoxKeyWords);
             this.Controls.Add(this.buttonGetStat);
-            this.Controls.Add(this.groupBoxNewsPapers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Form1";
             this.groupBoxKeyWords.ResumeLayout(false);
             this.groupBoxKeyWords.PerformLayout();
@@ -281,12 +282,13 @@
         private System.Windows.Forms.RadioButton radioButtonKorea;
         private System.Windows.Forms.GroupBox groupBoxKeyWords;
         private System.Windows.Forms.GroupBox groupBoxNewsPapers;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBoxCount;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

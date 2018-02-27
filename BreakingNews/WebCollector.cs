@@ -9,7 +9,7 @@ namespace BreakingNews
 
         public void GetHtmlFromUrl(string url)
         {
-            if (string.IsNullOrEmpty(url) || url == null)
+            if (string.IsNullOrEmpty(url))
             {
                 throw new ArgumentNullException("Cant be null or empty values");
             }

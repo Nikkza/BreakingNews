@@ -1,6 +1,7 @@
 ﻿using BreakingNews;
 using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using System;
 
 namespace NunitTests
@@ -15,36 +16,41 @@ namespace NunitTests
         #region Here i started the test WebColectorTest 
 
         [Test]
-        public void TestCodeWebbCollector()
+        public void UrlNotContainsHttp()
         {
-            Assert.Catch<ArgumentException>(UrlNotContainsHttp);
-            Assert.Catch<ArgumentNullException>(StringIsNullOrEmpty);
+            WebCollector wc = new WebCollector();
+            string url = "www.aftonbladet.se";
+            var ex = Assert.Throws<ArgumentException>(
+                () => wc.GetHtmlFromUrl(url));
+
+            Assert.IsTrue(ex.Message.Contains("missing https"));
+        }
+
+        [Test]
+        public void UrlStringIsNullOrEmpty()
+        {
+            WebCollector wc = new WebCollector();
+            var stringnull = Assert.Throws<ArgumentNullException>(
+                () => wc.GetHtmlFromUrl(url: null));
+            Assert.IsTrue(stringnull.Message.Contains("Cant be null or empty values"));
+
+            var stringempty = Assert.Throws<ArgumentNullException>(
+                () => wc.GetHtmlFromUrl(url: String.Empty));
+            Assert.IsTrue(stringempty.Message.Contains("Cant be null or empty values"));
         }
 
         [Test]
         public void ValidUrl()
         {
+
             WebCollector wc = new WebCollector();
             string url = "https://www.aftonbladet.se/";
             wc.GetHtmlFromUrl(url);
-            Assert.IsTrue(url.StartsWith("https"));
+
+            Assert.IsTrue(url.Contains("https"));
+
         }
 
-        public void StringIsNullOrEmpty()
-        {
-            WebCollector wc = new WebCollector();
-            string nullobject = null;
-            wc.GetHtmlFromUrl(nullobject);
-            string empty = String.Empty;
-            wc.GetHtmlFromUrl(empty);
-        }
-
-        public void UrlNotContainsHttp()
-        {
-            WebCollector wc = new WebCollector();
-            string url = "www.aftonbladet.se";
-            wc.GetHtmlFromUrl(url);
-        }
         #endregion
 
         #region Here i started the test WebCalculatorTest
@@ -52,23 +58,24 @@ namespace NunitTests
         [Test]
         public void TestNullWebCollCalculator()
         {
-            WebCalculator wc = new WebCalculator();
-            WebCollector wb = new WebCollector();
+            IWebCalculator wc = new WebCalculator();
+            IWebCollector wb = new WebCollector();
             string s = "hej";
-            var results = wc.CalculateNumberOfHits(wb, s);
+            var results = wc.CalculateNumberOfHits(wb, keyword: s);
             Assert.AreEqual(-1, results);
         }
 
         [Test]
-        public void TestHtmlNullWebCalculator()
+        public void TestNullObjectHtml()
         {
             IWebCalculator wc = new WebCalculator();
             IWebCollector wb = new WebCollector();
             wb.HtmlCode = null;
-            string s = "testing";
+            string s = "key";
             var results = wc.CalculateNumberOfHits(wb, s);
             Assert.AreEqual(-1, results);
         }
+
         [Test]
         public void TestHtmlStringEmptyWebCalculator()
         {
@@ -85,9 +92,9 @@ namespace NunitTests
         {
             IWebCalculator wc = new WebCalculator();
             IWebCollector wb = new WebCollector();
-            wb.HtmlCode = "https://www.aftonbladet.se/";
-            string s = String.Empty;
-            var results = wc.CalculateNumberOfHits(wb, s);
+            string url = "https://www.aftonbladet.se/";
+            wb.GetHtmlFromUrl(url);
+            var results = wc.CalculateNumberOfHits(wb, keyword: String.Empty);
             Assert.AreEqual(-1, results);
         }
 
@@ -96,9 +103,9 @@ namespace NunitTests
         {
             IWebCalculator wc = new WebCalculator();
             IWebCollector wb = new WebCollector();
-            wb.HtmlCode = "https://www.aftonbladet.se/";
-            string s = null;
-            var results = wc.CalculateNumberOfHits(wb, s);
+            string url = "https://www.aftonbladet.se/";
+            wb.GetHtmlFromUrl(url);
+            var results = wc.CalculateNumberOfHits(wb, keyword: null);
             Assert.AreEqual(-1, results);
         }
 
@@ -110,13 +117,12 @@ namespace NunitTests
         {
             Mock<IWebCollector> moq = new Mock<IWebCollector>();
             IWebCalculator wc = new WebCalculator();
-            moq.SetupAllProperties();
-            moq.Object.HtmlCode = "koreakoreakorea";
+            moq.Setup(x => x.HtmlCode).Returns("koreakoreakorea");
             string s = "korea";
             var results = wc.CalculateNumberOfHits(moq.Object, s);
             Assert.That(results == 3);
-
-            #endregion
         }
+
+        #endregion
     }
 }

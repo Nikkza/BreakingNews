@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace BreakingNews
 {
@@ -6,21 +7,12 @@ namespace BreakingNews
     {
         public int CalculateNumberOfHits(IWebCollector webColl, string keyword)
         {
-
-            if (string.IsNullOrEmpty(webColl.HtmlCode) || webColl == null || string.IsNullOrEmpty(keyword))
+            if (string.IsNullOrEmpty(webColl.HtmlCode) || string.IsNullOrEmpty(keyword) || webColl == null)
             {
                 return -1;
             }
 
-            if (Regex.Matches(webColl.HtmlCode.ToLower(), keyword).Count == 3)
-            {
-
-                return 3;
-            }
-
             return Regex.Matches(webColl.HtmlCode.ToLower(), keyword).Count;
-
-
         }
     }
 }

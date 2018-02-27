@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BreakingNews
@@ -7,10 +8,6 @@ namespace BreakingNews
     {
         private IWebCollector _myWebCollector;
         private IWebCalculator _myWebCalculator;
-        private string _aftonbladet = "https://www.aftonbladet.se";
-        private string _expressen = "https://www.expressen.se/";
-        private string _dn = "https://www.dn.se/";
-        private string _changeurl;
 
         public Form1()
         {
@@ -19,38 +16,37 @@ namespace BreakingNews
             _myWebCollector = new WebCollector();
         }
 
-        private void LogicRadioButton()
+        private string LogicRadioButton()
         {
             if (radioButtonAftonbladet.Checked)
-                _changeurl = _aftonbladet;
+                return "https://www.aftonbladet.se";
 
-            else if (radioButtonExpressen.Checked)
-                _changeurl = _expressen;
+            if (radioButtonExpressen.Checked)
+                return "https://www.expressen.se/";
 
-            else if (radioButtonDN.Checked)
-                _changeurl = _dn;
+            return radioButtonDN.Checked ? "https://www.dn.se/" : String.Empty;
         }
 
         private async void RadioButtonNews()
         {
-            if (groupBoxKeyWords.SelectedRadioButton().Checked)
+            try
             {
-                try
+                if (groupBoxKeyWords.SelectedRadioButton().Checked)
                 {
                     textBoxCount.Text = "Loading...";
-                    await Task.Delay(500);
-                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(_changeurl));
+                    await Task.Delay(1000);
+                    await Task.Run(() => _myWebCollector.GetHtmlFromUrl(LogicRadioButton()));
                 }
-                finally
-                {
-                    textBoxCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector, groupBoxKeyWords.SelectedRadioButton().Text.ToLower()).ToString();
-                }
+            }
+            finally
+            {
+                textBoxCount.Text = _myWebCalculator.CalculateNumberOfHits(_myWebCollector,
+                    groupBoxKeyWords.SelectedRadioButton().Text.ToLower()).ToString();
             }
         }
 
         private void buttonGetStat_Click(object sender, System.EventArgs e)
         {
-            LogicRadioButton();
             RadioButtonNews();
         }
     }
