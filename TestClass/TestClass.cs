@@ -1,12 +1,14 @@
-﻿using BreakingNews;
-using Moq;
+﻿using System;
+using BreakingNews;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
-using System;
+using Moq;
 
-namespace NunitTests
+namespace TestClass
 {
-    [TestFixture]
     public class TestClass
     {
         /// <summary>
@@ -46,7 +48,6 @@ namespace NunitTests
             WebCollector wc = new WebCollector();
             string url = "https://www.aftonbladet.se/";
             wc.GetHtmlFromUrl(url);
-
             Assert.IsTrue(url.Contains("https"));
 
         }
